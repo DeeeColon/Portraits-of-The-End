@@ -31,10 +31,6 @@ public class playerInputs : MonoBehaviour
         Debug.Log("Middle Button Clicked!");
     }
 
-    if(Input.GetKey(KeyCode.Escape))
-    {
-        Debug.Log("Pressed Escape!");
-    }
 
 
    }
