@@ -13,8 +13,15 @@ using System.Collections.Generic;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Message [] messages;
-    public Actor [] actors;
+    public Message[] messages;
+    public Actor[] actors;
+
+    public DialogueManagement targetScript;
+
+    public void StartDialogue()
+    {
+        FindAnyObjectByType<DialogueManagement>().OpenDialogue(messages, actors);
+    }
 }
 
 [System.Serializable]
@@ -30,3 +37,4 @@ public class Actor
     public string name;
     public Sprite sprite;
 }
+
