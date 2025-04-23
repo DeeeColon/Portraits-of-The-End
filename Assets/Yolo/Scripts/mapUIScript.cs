@@ -20,6 +20,6 @@ public class mapUIScript : MonoBehaviour
 
     public void BarGoBTN()
     {
-        SceneManager.LoadScene("mainMenuScene");
+        SceneManager.LoadScene("openingDialogueScene");
     }
 }

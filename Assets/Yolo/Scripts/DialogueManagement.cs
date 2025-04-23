@@ -10,7 +10,6 @@ using System;
 // Title: Create DIALOGUE system for your game | Unity tutorial
 // Author: Coco Code
 // Date: 18 April 2025
-// Code Version: (ask tutors about this)
 // Availability: https://youtu.be/PswC-HIKZqA?si=puzCaebHxaYuC6EY
 
 
@@ -23,6 +22,7 @@ public class DialogueManagement : MonoBehaviour
     public Text actorName;
     public Text messageText;
     public RectTransform backgroundBox;
+    public RectTransform choiceBox;
 
     Message [] currentMessages;
     Actor [] currentActors;
@@ -36,6 +36,8 @@ public class DialogueManagement : MonoBehaviour
         currentActors = actors;
         activeMessage = 0;
         isActive = true;
+        backgroundBox.LeanScale(Vector3.one,0.01f);
+        choiceBox.LeanScale(Vector3.one,0.01f);
        
 
         Debug.Log("Started conversation! Loaded messages: " + messages.Length);
@@ -63,6 +65,8 @@ public class DialogueManagement : MonoBehaviour
         {
             Debug.Log("Conversation Ended!");
             isActive = false;
+            backgroundBox.LeanScale(Vector3.zero,0.01f);
+
         }
     }
 
@@ -72,7 +76,8 @@ public class DialogueManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        backgroundBox.transform.localScale = Vector3.zero;
+        choiceBox.transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame

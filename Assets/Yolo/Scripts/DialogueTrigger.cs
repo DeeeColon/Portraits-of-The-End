@@ -7,7 +7,6 @@ using System.Collections.Generic;
 // Title: Create DIALOGUE system for your game | Unity tutorial
 // Author: Coco Code
 // Date: 18 April 2025
-// Code Version: (ask tutors about this)
 // Availability: https://youtu.be/PswC-HIKZqA?si=puzCaebHxaYuC6EY
 
 

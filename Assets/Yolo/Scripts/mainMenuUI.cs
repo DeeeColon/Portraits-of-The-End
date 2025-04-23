@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 // Title: Load a scene in Unity from a button!
 // Author: RigorMortisTortoise
 // Date: 17 April 2025
-// Code Version: (ask lecturers about this)
 // Availability https://youtube.com/shorts/qCKmtlKmRyQ?si=ho4moXh2v9St8vYt
 
 public class mainMenuUI : MonoBehaviour
@@ -16,14 +15,13 @@ public class mainMenuUI : MonoBehaviour
 
     public void startGameBTN()
     {
-        SceneManager.LoadScene("openingDialogueScene");
+        SceneManager.LoadScene("mapDaytimeScene");
     }
 
 // Code for exit button is referenced from:
 // Title: MAIN MENU in Unity (Best Menu Tutorial 2024)
 // Author: SpeedTutor
 // Date: 17 April 2025
-// Code Version: (seek above)
 // Availability: https://youtu.be/Cq_Nnw_Lmnl?si6_3a7wW6jbYKRq_d
 
     public void ExitBTN()
