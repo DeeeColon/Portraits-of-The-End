@@ -12,7 +12,6 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuUI : MonoBehaviour
 {
-
     public void startGameBTN()
     {
         SceneManager.LoadScene("mapDaytimeScene");
