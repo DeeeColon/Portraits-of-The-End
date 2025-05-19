@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SiennaPlaceholderSprite_0: 6091062610733349189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
