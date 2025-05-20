@@ -17,26 +17,33 @@ using UnityEngine.EventSystems;
 // Availability: https://youtu.be/vY0Sk93YUhA?si=H7jIWgzF2tr9MRC0
 public class dialogueManager : MonoBehaviour
 {
-   [Header("Dialogue UI")] 
-   [SerializeField] private GameObject dialoguePanel;
+   [Header("Dialogue UI")] [SerializeField]
+   private GameObject dialoguePanel;
+
    [SerializeField] private TextMeshProUGUI dialogueText;
    [SerializeField] private TextMeshProUGUI displayNameText;
-   
-   
-   [Header("Choices UI")]
-   [SerializeField] private GameObject[] choices;
+   [SerializeField] private Animator portraitAnimator;
+
+
+   [Header("Choices UI")] [SerializeField]
+   private GameObject[] choices;
+
    private TextMeshProUGUI[] choicesText;
-   
+
    private Story currentStory;
    private bool dialogueActive;
-   
+   private bool isPaused;
+   private int dateScore;
+
    private static dialogueManager instance;
-   
+
    private const string SPEAKER_TAG = "Speaker";
-   
+
    private const string PORTRAIT_TAG = "Portrait";
-   
+
    private const string LAYOUT_TAG = "Layout";
+   
+   private const string CHOICE_TAG = "Choice";
 
    private void Awake()
    {
@@ -44,6 +51,7 @@ public class dialogueManager : MonoBehaviour
       {
          Debug.LogError("More than one dialogue manager found");
       }
+
       instance = this;
    }
 
@@ -56,7 +64,7 @@ public class dialogueManager : MonoBehaviour
    {
       dialoguePanel.SetActive(false);
       dialogueActive = false;
-      
+
       choicesText = new TextMeshProUGUI[choices.Length];
       int index = 0;
       foreach (GameObject choice in choices)
@@ -73,22 +81,22 @@ public class dialogueManager : MonoBehaviour
          return;
       }
 
-      if (Input.GetKeyDown(KeyCode.Space))
+      if (Input.GetKeyDown(KeyCode.Space) && isPaused == false)
       {
          ContinueStory();
       }
-      
+
    }
 
    public void EnterDialogueMode(TextAsset inkJSON)
    {
-     currentStory = new Story(inkJSON.text);
-     dialogueActive = true;
-     dialoguePanel.SetActive(true);
-     
-     ContinueStory();
-     
-     
+      currentStory = new Story(inkJSON.text);
+      dialogueActive = true;
+      dialoguePanel.SetActive(true);
+
+      ContinueStory();
+
+
    }
 
    private void ExitDialogueMode()
@@ -96,6 +104,14 @@ public class dialogueManager : MonoBehaviour
       dialoguePanel.SetActive(false);
       dialogueActive = false;
       dialogueText.text = "";
+      if (dateScore >= 4)
+      {
+         print("successful date!");
+      }
+      else
+      {
+         print("failed date!");
+      }
    }
 
    private void ContinueStory()
@@ -122,6 +138,7 @@ public class dialogueManager : MonoBehaviour
          {
             Debug.LogError("Tag could not be appropriately parsed: " + tag);
          }
+
          string tagKey = splitTag[0].Trim();
          string tagValue = splitTag[1].Trim();
 
@@ -133,9 +150,26 @@ public class dialogueManager : MonoBehaviour
                break;
             case PORTRAIT_TAG:
                Debug.Log("portrait= " + tagValue);
+               portraitAnimator.Play(tagValue);
                break;
             case LAYOUT_TAG:
                Debug.Log("layout= " + tagValue);
+               break;
+            case CHOICE_TAG:
+               Debug.Log("choice= " + tagValue);
+               if (tagValue == "good")
+               {
+                  print("good choice");
+                  dateScore+= 2;
+               } else if (tagValue == "great")
+               {
+                  print("great choice");
+                  dateScore+= 3;
+               } else if (tagValue == "bad")
+               {
+                  print("bad choice");
+                  dateScore += 1;
+               }
                break;
             default:
                Debug.LogWarning("Tag had came in but not implemented: " + tag);
@@ -143,15 +177,17 @@ public class dialogueManager : MonoBehaviour
          }
       }
    }
+
    private void DisplayChoices()
    {
       List<Choice> currentChoices = currentStory.currentChoices;
 
       if (currentChoices.Count > choices.Length)
       {
-         Debug.LogError("More choices were given than the UI can support. Number of choices given: " + currentChoices.Count);
+         Debug.LogError("More choices were given than the UI can support. Number of choices given: " +
+                        currentChoices.Count);
       }
-      
+
       int index = 0;
       foreach (Choice choice in currentChoices)
       {
@@ -164,7 +200,7 @@ public class dialogueManager : MonoBehaviour
       {
          choices[i].gameObject.SetActive(false);
       }
-      
+
       StartCoroutine(SelectFirstChoice());
    }
 
@@ -185,4 +221,13 @@ public class dialogueManager : MonoBehaviour
       ContinueStory();
    }
 
+   public void Paused()
+   {
+      isPaused = true;
+   }
+
+   public void Unpaused()
+   {
+      isPaused = false;
+   }
 }

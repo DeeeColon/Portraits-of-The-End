@@ -1,32 +1,31 @@
 -> main
 
-
 === main ===
-Yo 
-This is test dialogue #speaker:mah boy #portrait:mehface
+Yo #Speaker:mah boy #Portrait:mehface
+This is test dialogue 
 -> choiceOne
 === choiceOne===
 Say something cool
     + [Yessir]
-        That's so cool! #portrait:happyface
+        That's so cool! #Portrait:happyface #Choice:good
         -> afterChoiceOne
     + [No sir, thats lame]
-        You're no fun #portrait:sadface
+        You're no fun #Portrait:sadface #Choice:bad 
         ->afterChoiceOne
     + [You a weirdo]
-        You're no fun #portrait:sadface
+        You're no fun #Portrait:mehface #Choice:bad
         ->afterChoiceOne
 -> choiceOne
 === afterChoiceOne ===        
-This should be the end tho? #portrait:mehface
+This should be the end tho? #Portrait:mehface
     + [no it isn't]
-        You are lying! #portrait:sadface
+        You are lying! #Portrait:sadface
         -> afterChoiceTwo
     + [yes it is]
-        thanks man! #portrait:happyface
+        thanks man! #Portrait:happyface #Choice:good
         -> afterChoiceTwo
 -> afterChoiceOne        
 === afterChoiceTwo ===
-this is the end #portrait:mehface
-bye bye! #portrait:happyface
+this is the end #Portrait:mehface
+bye bye! #Portrait:happyface
 -> END
