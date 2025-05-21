@@ -26,19 +26,16 @@ public class dragObjectScript : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("BeginDrag");
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("EndDrag");
         canvasGroup.blocksRaycasts = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag");
         rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     

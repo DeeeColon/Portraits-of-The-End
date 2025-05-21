@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 // code for minigameone is referenced from:
 // Title: Drag and Drop System in Unity - Puzzle Game Example (PC and Mobile)
@@ -13,11 +14,19 @@ public class miniGameManager : MonoBehaviour
     private int MiniGameThreePoints;
     private bool Chopped;
     private int Difficulty;
-    private int Hearts;
+    private bool tasksCompleted;
     
+    public TextMeshProUGUI winText;
+    public GameObject EndOFDateBox;
+
+    public GameObject FirstDifficulty;
+    public GameObject TIMER;
     public GameObject MiniGameOne;
     public GameObject MiniGameTwo;
     public GameObject MiniGameThree;
+    public timerScript timer;
+    public dialogueManager dialogueManager;
+   
 
     public GameObject bottles;
     
@@ -26,7 +35,6 @@ public class miniGameManager : MonoBehaviour
     void Start()
     {
         PointsToWinMiniGameOne = bottles.transform.childCount;
-        Hearts = 3;
         Chopped = false;
     }
 
@@ -38,27 +46,30 @@ public class miniGameManager : MonoBehaviour
             MiniGameOne.SetActive(false);
             MiniGameTwo.SetActive(true);
         }
-        if (MiniGameThreePoints == 300)
+        if (MiniGameThreePoints == 500)
         {
-            MiniGameThree.SetActive(false);
-            MiniGameOne.SetActive(true);
+            tasksCompleted = true;
+
         }
 
         if (Chopped)
         {
             MiniGameTwo.SetActive(false);
             MiniGameThree.SetActive(true);
+            Chopped = false;
             
         }
 
-        if (MiniGameThree.activeSelf)
+        if (tasksCompleted && timer.getRemainingTime() >= 0)
         {
-            Chopped = false;
+            MiniGameWon();
         }
     }
 
     private void Awake()
     {
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<dialogueManager>();
+        timer = GameObject.Find("TIMER").GetComponent<timerScript>();
         if (instance != null && instance != this)
         {
             Destroy(this);
@@ -73,6 +84,7 @@ public class miniGameManager : MonoBehaviour
     {
         currentPointsMiniGameOne++;
     }
+    
 
     public void ScrubbingPoints()
     {
@@ -84,5 +96,45 @@ public class miniGameManager : MonoBehaviour
         Chopped = true;
     }
     
+    public void MiniGameWon()
+    {
+        TIMER.SetActive(false);
+        EndOFDateBox.SetActive(true);
+        FirstDifficulty.SetActive(false);
+        dialogueManager.SuccessfulMiniGame();
+        if (dialogueManager.getDialogueScore() >= 4)
+        {
+            winText.text = "Successful Date! You did well.";
+        } 
+        else if (dialogueManager.getDialogueScore() == 4)
+        {
+            winText.text = "Successful Date! You did okay.";
+        } 
+        else if (dialogueManager.getDialogueScore() <= 4)
+        {
+            winText.text = "Unsuccessful Date! You did not do well.";
+        }
+        
+    }
+
+    public void MiniGameLost()
+    {
+        TIMER.SetActive(false);
+        EndOFDateBox.SetActive(true);
+        FirstDifficulty.SetActive(false);
+        if (dialogueManager.getDialogueScore() >= 4)
+        {
+            winText.text = "Successful Date! You did well.";
+        } 
+        else if (dialogueManager.getDialogueScore() == 4)
+        {
+            winText.text = "Successful Date! You did okay.";
+        } 
+        else if (dialogueManager.getDialogueScore() <= 4)
+        {
+            winText.text = "Unsuccessful Date! You did not do well.";
+        }
+        
+    }
     
 }

@@ -6,6 +6,9 @@ public class lemonChop : MonoBehaviour
     public bool moveLeft;
     public bool moveDown;
     public bool moveRight;
+    [SerializeField] int sensitivity;
+    public GameObject lemon;
+    public GameObject prompt;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +23,7 @@ public class lemonChop : MonoBehaviour
     {
         if (moveLeft == true)
         {
-            transform.Translate(Vector3.left * (Time.deltaTime * 8));
+            transform.Translate(Vector3.left * (Time.deltaTime * sensitivity));
         }
 
         if (transform.position.x < -8)
@@ -31,7 +34,7 @@ public class lemonChop : MonoBehaviour
 
         if (moveLeft == false && moveRight == true)
         {
-            transform.Translate(Vector3.right * (Time.deltaTime * 8));
+            transform.Translate(Vector3.right * (Time.deltaTime * sensitivity));
         }
 
         if (transform.position.x > 8)
@@ -66,6 +69,8 @@ public class lemonChop : MonoBehaviour
             moveLeft = false;
             moveRight = false;
             Destroy(gameObject);
+            lemon.SetActive(false);
+            prompt.SetActive(false);
 
         }
     }

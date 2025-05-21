@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/openingDialogueScene.unity
     guid: 9ea8f7782ee43a14eb9e6da4e1b79e04
+  - enabled: 1
+    path: Assets/Scenes/SiennaMiniGame.unity
+    guid: a2c40bd09c8b86a468ca847854166931
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -20,6 +20,8 @@ public class dialogueManager : MonoBehaviour
    [Header("Dialogue UI")] [SerializeField]
    private GameObject dialoguePanel;
 
+   private GameObject Managers;
+
    [SerializeField] private TextMeshProUGUI dialogueText;
    [SerializeField] private TextMeshProUGUI displayNameText;
    [SerializeField] private Animator portraitAnimator;
@@ -53,6 +55,8 @@ public class dialogueManager : MonoBehaviour
       }
 
       instance = this;
+      Managers = GameObject.Find("Managers");
+      DontDestroyOnLoad(Managers);
    }
 
    public static dialogueManager GetInstance()
@@ -191,6 +195,7 @@ public class dialogueManager : MonoBehaviour
       int index = 0;
       foreach (Choice choice in currentChoices)
       {
+         isPaused = true;
          choices[index].gameObject.SetActive(true);
          choicesText[index].text = choice.text;
          index++;
@@ -213,6 +218,7 @@ public class dialogueManager : MonoBehaviour
 
    public void MakeChoice(int choiceIndex)
    {
+      isPaused = false;
       currentStory.ChooseChoiceIndex(choiceIndex);
    }
 
@@ -229,5 +235,15 @@ public class dialogueManager : MonoBehaviour
    public void Unpaused()
    {
       isPaused = false;
+   }
+
+   public float getDialogueScore()
+   {
+      return dateScore;
+   }
+
+   public void SuccessfulMiniGame()
+   {
+      dateScore += 3;
    }
 }

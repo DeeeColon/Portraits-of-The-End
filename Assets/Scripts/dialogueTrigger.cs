@@ -20,6 +20,7 @@ public class dialogueTrigger : MonoBehaviour
    public void OpenDialogue()
    {
       dialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+      Debug.Log("Dialogue Entered!");
    }
    
    
