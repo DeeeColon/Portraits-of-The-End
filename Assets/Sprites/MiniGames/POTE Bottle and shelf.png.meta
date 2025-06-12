@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      POTE Bottle and shelf_0: 8575257263183073380
+      POTE Bottle and shelf_1: -118237371665809567
+      POTE Bottle and shelf_2: -1305017404970756562
+      POTE Bottle and shelf_3: 3187106682816047315
+      POTE Bottle and shelf_4: 1765050442745723369
+      POTE Bottle and shelf_5: -1403874186146358476
+      POTE Bottle and shelf_6: 8904987226098192473
+      POTE Bottle and shelf_7: -7876076503467787659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

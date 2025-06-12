@@ -13,10 +13,13 @@ public class lemonChop : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        OriginalPosition = gameObject.transform.position;
         moveLeft = true;
         moveDown = false;
         moveRight = false;
     }
+
+    public Vector3 OriginalPosition { get; set; }
 
     // Update is called once per frame
     void Update()
@@ -41,6 +44,13 @@ public class lemonChop : MonoBehaviour
         {
             moveLeft = true;
             moveRight = false;
+        }
+
+        if (transform.position.y < -10)
+        {
+            gameObject.transform.position = OriginalPosition;
+            moveDown = false;
+            moveLeft = true;
         }
         
         if (Input.GetKey(KeyCode.Space))

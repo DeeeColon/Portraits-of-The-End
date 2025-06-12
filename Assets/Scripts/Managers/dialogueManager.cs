@@ -25,6 +25,7 @@ public class dialogueManager : MonoBehaviour
    [SerializeField] private TextMeshProUGUI dialogueText;
    [SerializeField] private TextMeshProUGUI displayNameText;
    [SerializeField] private Animator portraitAnimator;
+   [SerializeField] private TextMeshProUGUI playerPrompter;
 
 
    [Header("Choices UI")] [SerializeField]
@@ -85,11 +86,6 @@ public class dialogueManager : MonoBehaviour
          return;
       }
 
-      if (Input.GetKeyDown(KeyCode.Space) && isPaused == false)
-      {
-         ContinueStory();
-      }
-
    }
 
    public void EnterDialogueMode(TextAsset inkJSON)
@@ -122,6 +118,7 @@ public class dialogueManager : MonoBehaviour
    {
       if (currentStory.canContinue)
       {
+         playerPrompter.text = "Press Click The Arrow To Continue";
          dialogueText.text = currentStory.Continue();
          DisplayChoices();
          HandleTags(currentStory.currentTags);
@@ -196,6 +193,8 @@ public class dialogueManager : MonoBehaviour
       foreach (Choice choice in currentChoices)
       {
          isPaused = true;
+         playerPrompter.text = "Please Select An Option";
+         
          choices[index].gameObject.SetActive(true);
          choicesText[index].text = choice.text;
          index++;
@@ -220,6 +219,7 @@ public class dialogueManager : MonoBehaviour
    {
       isPaused = false;
       currentStory.ChooseChoiceIndex(choiceIndex);
+      playerPrompter.text = "Press Click The Arrow To Continue";
    }
 
    public void ChoiceStoryAdvancer()

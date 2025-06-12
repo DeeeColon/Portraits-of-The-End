@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dirt beer_0: -2576956493694879169
+      dirt beer_1: -8025013045804340966
+      dirt beer_2: -5566236874809009578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

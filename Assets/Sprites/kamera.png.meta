@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kamera_0: -2497231019311568243
+      kamera_1: -291108804390853054
+      kamera_2: 6274020553739007260
+      kamera_3: 5351303515435415982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
