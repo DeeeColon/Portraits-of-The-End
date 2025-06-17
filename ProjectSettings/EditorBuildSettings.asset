@@ -12,11 +12,23 @@ EditorBuildSettings:
     path: Assets/Scenes/mapDaytimeScene.unity
     guid: 0cd77b82cce0a724cb70cecca622bfd4
   - enabled: 1
-    path: Assets/Scenes/openingDialogueScene.unity
+    path: Assets/Scenes/SiennaDialogueDateOne.unity
     guid: 9ea8f7782ee43a14eb9e6da4e1b79e04
   - enabled: 1
     path: Assets/Scenes/SiennaMiniGame.unity
     guid: a2c40bd09c8b86a468ca847854166931
+  - enabled: 1
+    path: Assets/Scenes/TobiasDialogueDateOne.unity
+    guid: de16ea7d6a97b3b429d11e07593b03c8
+  - enabled: 1
+    path: Assets/Scenes/TobiasMiniGame.unity
+    guid: 406d0f4fd57ec044c9b40de9ddc8d78a
+  - enabled: 1
+    path: Assets/Scenes/mapNighttimeScene.unity
+    guid: db828bfb8f360154e9ecb666a1e8b494
+  - enabled: 1
+    path: Assets/Scenes/OpeningDialogue.unity
+    guid: d9704d0d7461e17468bea4bdc686c3c8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

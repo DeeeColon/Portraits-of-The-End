@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class timerScript : MonoBehaviour
 {
     public static timerScript instance;
+    [SerializeField] public miniGameManager MiniGameManager;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
     public bool timerStopped;
@@ -41,6 +42,7 @@ public class timerScript : MonoBehaviour
         if (remainingTime <= 0)
         {
             miniGameManager.instance.MiniGameLost();
+            MiniGameManager.MiniGameLost();
         }
     }
     
@@ -54,6 +56,8 @@ public class timerScript : MonoBehaviour
         {
             instance = this;
         }
+        
+        MiniGameManager = GameObject.Find("MiniGameManager_Sienna").GetComponent<miniGameManager>();
     }
 
     public void StopTimer()

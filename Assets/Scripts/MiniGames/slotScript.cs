@@ -9,7 +9,9 @@ using UnityEngine.EventSystems;
 public class slotScript : MonoBehaviour, IDropHandler
 {
     public int ID;
+    [SerializeField] public miniGameManager MiniGameManager;
     public void OnDrop(PointerEventData eventData)
+    
     {
         Debug.Log("Item Dropped");
         if (eventData.pointerDrag != null)
@@ -18,7 +20,7 @@ public class slotScript : MonoBehaviour, IDropHandler
             {
                 Debug.Log("Correct!");
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition;
-                miniGameManager.instance.AddPoints();
+                MiniGameManager.AddPoints();
             }
             else
             {
@@ -33,6 +35,12 @@ public class slotScript : MonoBehaviour, IDropHandler
     {
         
     }
+
+    void Awake()
+    {
+        
+    }
+    
 
     // Update is called once per frame
     void Update()

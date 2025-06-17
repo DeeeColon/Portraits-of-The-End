@@ -1,58 +1,80 @@
 -> main
 
 === main ===
-“Hey sweetheart, I'm over here by the bar table” #Speaker:Sienna #Portrait:SiennaHappy
-“Hi, you're looking especially beautiful today” #Speaker:Player
-“Oh, why thank you sweetheart. So how is this gonna work?” #Speaker:Sienna #Portrait:SiennaHappy
-“So I’m going to ask you some questions and we will have an honest conversation from there. I will be recording this.” #Speaker:Player
-“So, to jump right into it, how are you feeling about the asteroid situation?” #Speaker:Player
-“Honest ha… Well, what do I have to lose .” #Speaker:Sienna #Portrait:SiennaUpset
-“I don’t care much about myself really, I care more about my people. They are my biggest priority.”
-“ Your people?” #Speaker:Player
-“Have you heard of the troublemakers of this city?" #Speaker:Sienna #Portrait:SiennaNeutral
-"Yes the Emerald Mafia, but why do you ask?" #Speaker:Player
-"Well this bar is a front for the mafia's mischief, they call this place home." #Speaker:Sienna #Portrait:SiennaHappy
-“But wait, it's called Sienna’s Bar… and that doesn’t answer my question…” #Speaker:Player
-“I’m the boss, sweetheart, of the Bar and the mafia gang. My people, although most of them ruffians and thugs, they are my family.” #Speaker:Sienna #Portrait:SiennaNeutral
-    +[Mafia… I didn't think that you would be a criminal. ] 
-        "You wanted honesty, don't judge me for giving to you." #Choice:bad #Speaker:Sienna #Portrait:SiennaUpset
+"Alright, end of the world, there must be someone in a bar" #Speaker:Charlie #choice:reset
+"This is strange, it seems to be rather empty in here, I wonder why? "Maybe the bartender will know." #Speaker:Charlie
+"Hey, sweetheart, can I get you anything?" #Speaker:Sienna #Portrait:SiennaNeutral
+"Oh no, I don’t drink, but thank you" #Speaker:Charlie
+"If you don’t drink, what brings you to my bar?" #Speaker:Sienna #Portrait:SiennaNeutral
+"Well, I'm a journalist and I decided to spend my last few days doing what I love. I'm here looking for someone to interview." #Speaker:Charlie
+"So umm… You said this was your bar, right? Why do you keep it open when it's so vacant?" #Speaker:Charlie
+"Oh, so I guess I'm your interviewee, interesting choice." #Speaker:Sienna #Portrait:SiennaHappy
+"Well, I keep the bar open not so much for me but for my people. I worry about them a lot." #Speaker:Sienna #Portrait:SiennaHappy
+"What do you mean by 'your people?' "#Speaker:Charlie
+"Okay, have you heard of  the Emerald Mafia, those mischievous trouble makers?" #Speaker:Sienna #Portrait:SiennaHappy
+"Honestly, I just picked at random, tho seems I've lucked out, but yes, I know about them. Why do you bring it up?" #Speaker:Charlie
+"Honestly, I just picked at random, though seems I've lucked out, but yes, I know about them. Why do you bring it up?" #Speaker:Charlie
+
+"Well,l this bar is a known front for that mafia." #Speaker:Sienna #Portrait:SiennaHappy
+"Wait, you said you own this bar…" #Speaker:Charlie
+“Yes. And it's named after me, too. Do you understand where this is going?” #Speaker:Sienna #Portrait:SiennaNeutral
+"So you are the boss, in more than one way…" #Speaker:Charlie
+"Exactly, and a bloody good one at that." #Speaker:Sienna 
+    +["Okay..Mafia. When I walked in, I didn't think that you would be a criminal."] 
+        "You never know someone's story, as a journalist,t you should know better than to just judge someone." #Speaker:Sienna #Portrait:SiennaUpset #Choice:bad
         ->afterFirstChoice
-    +[That's an intense family, I can understand why it's weighing on you]
-        "*tucks hair behind ear*" "It’s okay I’ll figure it out but thank you." #Choice:good #Speaker:Sienna #Portrait:SiennaNeutral
+    +["One complicated family you have, I can understand why it worries you."]
+        “I wouldn't trade it for the world, though" #Portrait:SiennaNeutral
+ #Choice:good #Speaker:Sienna #Portrait:SiennaNeutral
+        “I never thought someone would talk so sweetly about a mafia gang."#Speaker:Charlie
+        "I guess there is always some part of a person to love, even for ruffians and thugs." #Speaker:Charlie
         ->afterFirstChoice
-    +[Damn mama, didn't think you were wild like that.]
-        "*smirks* I have many sides to me, sweetheart…  *chuckles*" #Choice:great #Speaker:Sienna #Portrait:SiennaHappy
+    +["I can't lie, that’s very enticing."]
+        “I'm enticing? That’s a new one, but given my job, I can't blame you for that."  #Choice:great #Speaker:Sienna #Portrait:SiennaHappy
+        “A beautiful woman, as you know her value, why wouldn’t I wanna know more?" #Speaker:Charlie
+        “Indeed, the complexity of your job already holds so much." #Speaker:Charlie
+        “Well, my job is my life, for better or worse." #Speaker:Sienna #Portrait:SiennaNeutral
+        “Look, you gotta make time for yourself, remember you are more than what you do." #Speaker:Charlie
+        “I get it, your job makes you happy and it's obviously fulfilling, surrounded by people you care about. I don’t see anything wrong with that." #Speaker:Charlie
+
         ->afterFirstChoice
 === afterFirstChoice ===
-"How did you end up in this situation though?” #Speaker:Player
-“When Emerald City was still newly developing,my grandfather left Italy to live here and he basically became a loan shark to make ends meet.” #Speaker:Sienna #Portrait:SiennaNeutral
-“He grew a community like this and so became the Emerald Mafia.”
- “Oh wow so he really made something for himself” #Speaker:Player
-“He had 3 sons and taught them the in’s and out's of the business. After he passed his eldest son took over, that being my dad.” #Speaker:Sienna #Portrait:SiennaNeutral
-“As the eldest in the new generation, I was next in line. My dad built me this bar, as a gift for my handover, called it Sienna's place.” 
-“He built it in our favourite place in the city.” #Portrait:SiennaHappy
-    +[So there is just a family of criminals…]
-        "You’re really harping on that fact, I thought there was no judgement…" #Choice:bad #Speaker:Sienna #Portrait:SiennaUpset
+"So, can I ask how you ended up in this situation?” #Speaker:Charlie 
+“Well, when the Emerald City was still newly developing, my grandfather left Italy to live here, and he basically became a loan shark to make ends meet.”#Speaker:Sienna #Portrait:SiennaNeutral
+“He grew a community like this and so became the Emerald Mafia.”#Speaker:Sienna #Portrait:SiennaNeutral
+“Oh wow, so he really made something for himself” #Speaker:Charlie
+“He had 3 sons and taught them the ins and outs of the business. After he passed, his eldest son took over, that being my dad.” #Speaker:Sienna #Portrait:SiennaNeutral
+“Then it was my turn. My dad built me this bar, as a gift for my handover, called it Sienna's place.
+“He built it in our favourite place in the city.” #Speaker:Sienna #Portrait:SiennaHappy
+
+    +["So you guys are basically a family of criminals…" ]
+        "I mean technically, but it's deeper than the law is neglectful of many people. So call us criminals for all I care, we exist for a reason." #Choice:bad #Speaker:Sienna #Portrait:SiennaUpset
         ->afterSecondChoice
-    +[Oh so you’re the first woman in power.]
-        "Indeed and proud of it." #Choice:great #Speaker:Sienna #Portrait:SiennaHappy
+    +["Ahhh, it's generational. So some of your reputation is carried by your name, the legacy of those before you." ]
+        "I would agree with that sentiment, my father and his father made this life for me." #Speaker:Sienna #Choice:good #Portrait:SiennaHappy
+      “Hey, it's not all of them, you have to carry that legacy, hold up to their standards." #Speaker:Charlie
+      “I'm surprised at the amount of heart and love that can be found in a mafia gang, it's really a fresh perspective." #Speaker:Charlie
+        ->afterSecondChoice
+    +["Ah so a woman in power, that’s impressive, especially in this world run by men."]
+        “I do pride myself that I'm not the most intimidating but yet my presence demands respect." #Speaker:Sienna #Choice:great #Portrait:SiennaHappy
+        “I mean, come on, to hold authority like this in an environment like you have to be at least a little scary." #Speaker:Charlie
+        “You should be proud, you are a beautiful woman who has done a lot." #Speaker:Charlie
+        “You flatter me, but I'll take the compliments." #Speaker:Sienna #Portrait:SiennaHappy
+        “Well, you are an easy person to compliment."#Speaker:Charlie
         ->afterSecondChoice
 === afterSecondChoice ===
-“So tell me why this is your favourite place in the city.” #Speaker:Player
- “Growing up he really valued ‘us’ time, given his work.  So we would come here for picnics, it was my favourite place in the city.” #Speaker:Sienna #Portrait:SiennaHappy
-"For a mafia you guys are really sweet” #Speaker:Player
-“I mean we are still human, we still have hearts” #Speaker:Sienna #Portrait:SiennaNeutral
-“Actually it kinda breaks my heart, but i think i'm going to close the bar”
-“Oh no, why would you do that? #Speaker:Player
-“Well it's just me working now and I can't manage by myself. The business is suffering for it, so i feel like i have no choice” #Speaker:Sienna #Portrait:SiennaUpset
-“No you can't let the legacy die like this, let me help you. I'm sure we can get it ready for customers again.” #Speaker:Player
-“Then maybe you can host one last good night for a farewell.”
-"Well then, if you're willing to help, I have some menial tasks that need to be done." #Speaker:Sienna #Portrait:SiennaHappy
-"I can't do them because I have other matters to attend to."
-"Sure, no problem. Happy to lend a hand!" #Speaker:Player
-"Thank you sweetheart." #Speaker:Sienna
-"Please see that they are finishished before closing time."
-Sienna has tasked you with some tasks in the form of mini games! #Speaker:Narrator
-Complete these tasks before the time runs out to improve your date outcome!
-Good luck!
+"There is a lot of history here, tell me why this is your favourite place in the city.” #Speaker:Charlie
+“Growing up, he really valued ‘us’ time, given his work.  So we would come here for picnics, it was my favourite place in the city.” #Speaker:Sienna #Portrait:SiennaHappy
+“What a rare experience, in a job like that, to still make time for father-daughter time.” #Speaker:Charlie
+“I mean, we are still human, we still have hearts” 
+“Actually it kinda breaks my heart, but I think I'm going to close the bar” #Speaker:Sienna #Portrait:SiennaUpset
+“Oh no, why would you do that?” #Speaker:Charlie
+“Well, it's just me working now, and I can't manage by myself. The business is suffering for it, so I feel like I have no choice. Plus, what's the point with the end so close?”#Speaker:Sienna 
+“No, you can't let the legacy die like this. Let me help you. I'm sure we can get it ready for customers again.” #Speaker:Charlie
+“Then maybe you can host one last good night for a farewell.” #Speaker:Charlie
+"Thanks for coming by sweetheart, its nice to chat with someon every once and a while" #Speaker:Sienna #Portrait:SiennaSad
+"No problem, see you around!" #Speaker:Charlie
+
+
+
 -> DONE

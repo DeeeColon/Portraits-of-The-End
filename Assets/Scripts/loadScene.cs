@@ -19,8 +19,41 @@ public class loadScene : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadMiniGame()
+    public void LoadSienaMiniGame()
     {
         SceneManager.LoadScene(3);
     }
+
+    public void LoadMapDaytime()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadSiennasBar()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadTobiasCafe()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void LoadTobiasMinigame()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void LoadNightMap()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void LoadOpeningDialogue()
+    {
+        SceneManager.LoadScene(7);
+    }
+    
+    
+    
 }

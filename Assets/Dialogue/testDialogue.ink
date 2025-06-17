@@ -7,7 +7,7 @@ This is test dialogue
 === choiceOne===
 Say something cool
     + [Yessir]
-        That's so cool! #Portrait:happyface #Choice:good
+        That's so cool! #Portrait:happyface #Choice:great
         -> afterChoiceOne
     + [No sir, thats lame]
         You're no fun #Portrait:sadface #Choice:bad 

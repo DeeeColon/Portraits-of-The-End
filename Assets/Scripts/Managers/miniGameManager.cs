@@ -9,7 +9,7 @@ using TMPro;
 public class miniGameManager : MonoBehaviour
 {
     public static miniGameManager instance;
-    private int PointsToWinMiniGameOne;
+    public int PointsToWinMiniGameOne;
     private int currentPointsMiniGameOne;
     private int MiniGameThreePoints;
     private bool Chopped;
@@ -25,7 +25,8 @@ public class miniGameManager : MonoBehaviour
     public GameObject MiniGameTwo;
     public GameObject MiniGameThree;
     public timerScript timer;
-    public dialogueManager dialogueManager;
+    [SerializeField] private ScoreCommunicator DateScore;
+    [SerializeField] private DateChecker DateChecker;
    
 
     public GameObject bottles;
@@ -34,17 +35,18 @@ public class miniGameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PointsToWinMiniGameOne = bottles.transform.childCount;
+        PointsToWinMiniGameOne = 6;
         Chopped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentPointsMiniGameOne >= PointsToWinMiniGameOne)
+        if (currentPointsMiniGameOne == PointsToWinMiniGameOne)
         {
             MiniGameOne.SetActive(false);
             MiniGameTwo.SetActive(true);
+            Debug.Log("Changed Mini Game One");
         }
         if (MiniGameThreePoints == 500)
         {
@@ -68,8 +70,8 @@ public class miniGameManager : MonoBehaviour
 
     private void Awake()
     {
-        dialogueManager = GameObject.Find("DialogueManager").GetComponent<dialogueManager>();
         timer = GameObject.Find("TIMER").GetComponent<timerScript>();
+        DateChecker =  GameObject.Find("DateChecker").GetComponent<DateChecker>();
         if (instance != null && instance != this)
         {
             Destroy(this);
@@ -83,6 +85,8 @@ public class miniGameManager : MonoBehaviour
     public void AddPoints()
     {
         currentPointsMiniGameOne++;
+        Debug.Log("added a point");
+        Debug.Log(currentPointsMiniGameOne);
     }
     
 
@@ -101,18 +105,24 @@ public class miniGameManager : MonoBehaviour
         TIMER.SetActive(false);
         EndOFDateBox.SetActive(true);
         FirstDifficulty.SetActive(false);
-        dialogueManager.SuccessfulMiniGame();
-        if (dialogueManager.getDialogueScore() >= 4)
+        DateScore.Value += 3;
+        if (DateScore.Value >= 4)
         {
             winText.text = "Successful Date! You did well.";
+            DateChecker.SiennaDateComplete();
+            DateChecker.SiennaDateSucceeded();
+            
         } 
-        else if (dialogueManager.getDialogueScore() == 4)
+        else if (DateScore.Value == 4)
         {
             winText.text = "Successful Date! You did okay.";
+            DateChecker.SiennaDateComplete();
+            DateChecker.SiennaDateSucceeded();
         } 
-        else if (dialogueManager.getDialogueScore() <= 4)
+        else if (DateScore.Value <= 4)
         {
             winText.text = "Unsuccessful Date! You did not do well.";
+            DateChecker.SiennaDateComplete();
         }
         
     }
@@ -122,17 +132,22 @@ public class miniGameManager : MonoBehaviour
         TIMER.SetActive(false);
         EndOFDateBox.SetActive(true);
         FirstDifficulty.SetActive(false);
-        if (dialogueManager.getDialogueScore() >= 4)
+        if (DateScore.Value >= 4)
         {
             winText.text = "Successful Date! You did well.";
+            DateChecker.SiennaDateComplete();
+            DateChecker.SiennaDateSucceeded();
         } 
-        else if (dialogueManager.getDialogueScore() == 4)
+        else if (DateScore.Value == 4)
         {
             winText.text = "Successful Date! You did okay.";
+            DateChecker.SiennaDateComplete();
+            DateChecker.SiennaDateSucceeded();
         } 
-        else if (dialogueManager.getDialogueScore() <= 4)
+        else if (DateScore.Value <= 4)
         {
             winText.text = "Unsuccessful Date! You did not do well.";
+            DateChecker.SiennaDateComplete();
         }
         
     }

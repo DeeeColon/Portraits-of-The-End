@@ -17,6 +17,13 @@ using UnityEngine.EventSystems;
 // Availability: https://youtu.be/vY0Sk93YUhA?si=H7jIWgzF2tr9MRC0
 public class dialogueManager : MonoBehaviour
 {
+   [Header("Params")] 
+   [SerializeField] private float TypingSpeed = 0.05f;
+
+   public bool successfuldate = false;
+   public bool unsuccessfuldate = false;
+   
+   
    [Header("Dialogue UI")] [SerializeField]
    private GameObject dialoguePanel;
 
@@ -26,6 +33,12 @@ public class dialogueManager : MonoBehaviour
    [SerializeField] private TextMeshProUGUI displayNameText;
    [SerializeField] private Animator portraitAnimator;
    [SerializeField] private TextMeshProUGUI playerPrompter;
+   [SerializeField] private GameObject continueButton;
+   [SerializeField] private GameObject portraitImage;
+   [SerializeField] private ScoreCommunicator DateScore;
+   [SerializeField] private GameObject endScreen;
+   [SerializeField] private GameObject SuccessfulDate;
+   [SerializeField] private GameObject FailedDate;
 
 
    [Header("Choices UI")] [SerializeField]
@@ -34,7 +47,9 @@ public class dialogueManager : MonoBehaviour
    private TextMeshProUGUI[] choicesText;
 
    private Story currentStory;
+   private Coroutine displaylineCoroutine;
    private bool dialogueActive;
+   private bool canContinueToNextLine = false;
    private bool isPaused;
    private int dateScore;
 
@@ -47,17 +62,22 @@ public class dialogueManager : MonoBehaviour
    private const string LAYOUT_TAG = "Layout";
    
    private const string CHOICE_TAG = "Choice";
-
+   
+   private const string STATUS_TAG = "Status";
+   
    private void Awake()
    {
-      if (instance != null)
+      if (instance != null && instance != this)
       {
          Debug.LogError("More than one dialogue manager found");
+      } else
+      {
+         instance = this;
       }
-
-      instance = this;
       Managers = GameObject.Find("Managers");
       DontDestroyOnLoad(Managers);
+
+      
    }
 
    public static dialogueManager GetInstance()
@@ -85,6 +105,18 @@ public class dialogueManager : MonoBehaviour
       {
          return;
       }
+      
+      if (GameObject.Find("DialoguePanel") != null)
+      {
+         dialoguePanel = GameObject.Find("DialoguePanel");
+      }
+      else
+      {
+         return;
+      }
+      
+
+     
 
    }
 
@@ -104,29 +136,57 @@ public class dialogueManager : MonoBehaviour
       dialoguePanel.SetActive(false);
       dialogueActive = false;
       dialogueText.text = "";
-      if (dateScore >= 4)
-      {
-         print("successful date!");
-      }
-      else
-      {
-         print("failed date!");
-      }
+      DateScore.Value = dateScore;
+      endScreen.SetActive(true);
+      EndOFInterview();
    }
 
    private void ContinueStory()
    {
       if (currentStory.canContinue)
       {
+         if (displaylineCoroutine != null)
+         {
+            StopCoroutine(displaylineCoroutine);
+         }
          playerPrompter.text = "Press Click The Arrow To Continue";
-         dialogueText.text = currentStory.Continue();
-         DisplayChoices();
+         displaylineCoroutine = StartCoroutine(DisplayText(currentStory.Continue()));
          HandleTags(currentStory.currentTags);
       }
       else
       {
          // this is different for some reason, check out later
          ExitDialogueMode();
+      }
+   }
+
+   private IEnumerator DisplayText(string line)
+   {
+      continueButton.SetActive(false);
+      dialogueText.text = "";
+      playerPrompter.text = "Right Click To Fast Forward.";
+      HideChoices();
+
+      foreach (char letter in line.ToCharArray())
+      {
+         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+         {
+            dialogueText.text = line;
+            break;
+         }
+         dialogueText.text += letter;
+         yield return new WaitForSeconds(TypingSpeed);
+      }
+      DisplayChoices();
+      continueButton.SetActive(true);
+      playerPrompter.text = "Click The Arrow Icon To Continue";
+   }
+
+   private void HideChoices()
+   {
+      foreach (GameObject choiceButton in choices)
+      {
+         choiceButton.SetActive(false);
       }
    }
 
@@ -153,6 +213,17 @@ public class dialogueManager : MonoBehaviour
                Debug.Log("portrait= " + tagValue);
                portraitAnimator.Play(tagValue);
                break;
+            case STATUS_TAG:
+               Debug.Log("status= " + tagValue);
+               if (tagValue == "speaking")
+               {
+                  portraitImage.GetComponent<Image>().color = Color.white;
+               } 
+               else if (tagValue == "not speaking")
+               {
+                  portraitImage.GetComponent<Image>().color = Color.grey;
+               }
+               break;
             case LAYOUT_TAG:
                Debug.Log("layout= " + tagValue);
                break;
@@ -161,16 +232,23 @@ public class dialogueManager : MonoBehaviour
                if (tagValue == "good")
                {
                   print("good choice");
-                  dateScore+= 2;
-               } else if (tagValue == "great")
+                  dateScore += 2;
+               }
+               else if (tagValue == "great")
                {
                   print("great choice");
-                  dateScore+= 3;
-               } else if (tagValue == "bad")
+                  dateScore += 3;
+               }
+               else if (tagValue == "bad")
                {
                   print("bad choice");
                   dateScore += 1;
                }
+               else if (tagValue == "reset")
+               {
+                  dateScore = 0;
+               }
+                          
                break;
             default:
                Debug.LogWarning("Tag had came in but not implemented: " + tag);
@@ -193,6 +271,7 @@ public class dialogueManager : MonoBehaviour
       foreach (Choice choice in currentChoices)
       {
          isPaused = true;
+         continueButton.SetActive(false);
          playerPrompter.text = "Please Select An Option";
          
          choices[index].gameObject.SetActive(true);
@@ -218,8 +297,8 @@ public class dialogueManager : MonoBehaviour
    public void MakeChoice(int choiceIndex)
    {
       isPaused = false;
+      continueButton.SetActive(true);
       currentStory.ChooseChoiceIndex(choiceIndex);
-      playerPrompter.text = "Press Click The Arrow To Continue";
    }
 
    public void ChoiceStoryAdvancer()
@@ -245,5 +324,21 @@ public class dialogueManager : MonoBehaviour
    public void SuccessfulMiniGame()
    {
       dateScore += 3;
+   }
+
+   public void EndOFInterview()
+   {
+      if (getDialogueScore() < 4)
+      {
+         FailedDate.SetActive(true);
+         Debug.Log("Bad Job");
+      }
+
+      if (getDialogueScore() >= 4)
+      { 
+         SuccessfulDate.SetActive(true);
+        Debug.Log("Good Job");
+      }
+      
    }
 }
