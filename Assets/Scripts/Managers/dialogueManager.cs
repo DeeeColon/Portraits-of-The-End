@@ -15,6 +15,14 @@ using UnityEngine.EventSystems;
 // Author: Shaped by Rain Studios
 // Date: 5/7/2025
 // Availability: https://youtu.be/vY0Sk93YUhA?si=H7jIWgzF2tr9MRC0
+
+/*
+ * Code for dialogue can be found in this playlist
+ * Title: Unity2D + Ink Dialogue System
+ * Author: Shaped by Rain Studios
+ * Date: No date available for Playlist
+ * Availability: https://youtube.com/playlist?list=PL3viUl9h9k78KsDxXoAzgQ1yRjhm7p8kl&si=l_wTOcOBZZ4ku7ow
+ */
 public class dialogueManager : MonoBehaviour
 {
    [Header("Params")] 

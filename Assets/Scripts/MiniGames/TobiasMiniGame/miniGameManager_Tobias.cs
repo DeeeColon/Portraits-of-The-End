@@ -56,6 +56,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         if (DateScore.Value>= 4)
         {
             WinBox.SetActive(true);
+            LoseBox.SetActive(false);
             Debug.Log("You Win!, Well Done!");
             DateScore.TobiasDateOneCompleted = true;
             DateScore.TobiasDateOneSuccess = true;
@@ -63,6 +64,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         else if (DateScore.Value== 4)
         {
             WinBox.SetActive(true);
+            LoseBox.SetActive(false);
             Debug.Log("You Win!");
             DateScore.TobiasDateOneCompleted = true;
             DateScore.TobiasDateOneSuccess = true;
@@ -70,6 +72,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         else if (DateScore.Value <= 4)
         {
             LoseBox.SetActive(true);
+            WinBox.SetActive(false);
             Debug.Log("You Lose!");
             DateScore.TobiasDateOneCompleted = true;
         }
@@ -84,6 +87,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         if ( DateScore.Value >= 4)
         {
             WinBox.SetActive(true);
+            LoseBox.SetActive(false);
             Debug.Log(" You Win!, Well Done!");
             DateScore.TobiasDateOneCompleted = true;
             DateScore.TobiasDateOneSuccess = true;
@@ -91,6 +95,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         else if (DateScore.Value == 4)
         {
             WinBox.SetActive(true);
+            LoseBox.SetActive(false);
             Debug.Log(" You Win");
             DateScore.TobiasDateOneCompleted = true;
             DateScore.TobiasDateOneSuccess = true;
@@ -98,6 +103,7 @@ public class miniGameManager_Tobias : MonoBehaviour
         else if (DateScore.Value <= 4)
         {
            LoseBox.SetActive(true);
+           WinBox.SetActive(false);
             Debug.Log("You Lose!");
             DateScore.TobiasDateOneCompleted = true;
         }

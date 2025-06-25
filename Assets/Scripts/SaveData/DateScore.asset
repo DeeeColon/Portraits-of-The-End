@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DateScore
   m_EditorClassIdentifier: 
   _Value: 0
-  TobiasDateOneSuccess: 0
+  TobiasDateOneSuccess: 1
   SiennaDateOneSuccess: 0
   SiennaDateOneCompleted: 0
-  TobiasDateOneCompleted: 0
+  TobiasDateOneCompleted: 1
