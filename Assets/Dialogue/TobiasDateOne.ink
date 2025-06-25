@@ -1,7 +1,7 @@
 -> main
 
 === main ===
-“Hi there, sorry to interrupt. I’m a journalist, can I have a few minutes of your time #Speaker:Charlie
+“Hi there, sorry to interrupt. I’m a journalist, can I have a few minutes of your time #Speaker:Charlie #Choice:reset
  “Oh- hello, sure I can spare a few minutes.” #Speaker:Tobias #Portrait:TobiasNeutral
 “Let me just make some space for you, I'll just move my laptop.” #Speaker:Tobias #Portrait:TobiasNeutral
 “I'm surprised you’re still working. Thank you for making time for me. ” #Speaker:Charlie
@@ -19,19 +19,19 @@ My work is my life, and for these last few days, I'm gonna spend it doing what I
 -> choiceOne
 === choiceOne ===
 *[Ask About Hobbies]
-        “So you never thought to take a break by doing something less than working?” #Speaker:Charlie
+        “So you never thought to take a break by doing something less than working?” #Speaker:Charlie 
     “I mean sure, everyone has thought about that stuff at one stage in their life but I’ve just lost that kinda urge.” #Speaker:Tobias #Portrait:TobiasNeutral
     ->ChoiceOneA
     ===ChoiceOneA ===
     * [“That sounds really sad”]
-    “That a little rude, this is my life you're calling sad” #Speaker:Tobias #Portrait:Upset
+    “That a little rude, this is my life you're calling sad” #Speaker:Tobias #Portrait:Upset #Choice:bad
         -> afterChoiceOne
     * [“I understand that”]
-    “Its just how it goes when life gets in the way” #Speaker:Tobias #Portrait:TobiasNeutral
+    “Its just how it goes when life gets in the way” #Speaker:Tobias #Portrait:TobiasNeutral #Choice:good
     "Well, yes, but that's only if you let it” #Speaker:Charlie
         -> afterChoiceOne
     * ["That's unfortunate. Well, what were you used to be interested in?”]
-    “I used to like feeding the ducks in the park, simple, but it was calming, like I was in a different world. ” #Speaker:Tobias #Portrait:TobiasHappy
+    “I used to like feeding the ducks in the park, simple, but it was calming, like I was in a different world. ” #Speaker:Tobias #Portrait:TobiasHappy #Choice:great
     “That is so adorable!” #Speaker:Charlie
     “I think I envy these carefree ducks as odd as that sounds.” #Speaker:Tobias #Portrait:TobiasNeutral
     “Oh, to be a duck in a pond.” #Speaker:Charlie
@@ -43,14 +43,14 @@ My work is my life, and for these last few days, I'm gonna spend it doing what I
  ->ChoiceOneB
  ===ChoiceOneB===
 *[“Well, I’m a journalist it's kinda my job to be intrusive”]
-    “Yeah, but I'm not some big scoop, I’m just a person, and I don't appreciate it” #Speaker:Tobias #Portrait:TobiasUpset 
+    “Yeah, but I'm not some big scoop, I’m just a person, and I don't appreciate it” #Speaker:Tobias #Portrait:TobiasUpset #Choice:bad
     ->afterChoiceTwo
 *[“Oh, interesting, how so?” ]
-    “Um, ok… I guess they expect more from me, and I can give it to them.” #Speaker:Tobias #Portrait:TobiasNeutral
-    “Ah, strict parents. Makes sense.” #Speaker:Charlie
+    “Um, ok… I guess they expect more from me, and I can give it to them.” #Speaker:Tobias #Portrait:TobiasNeutral #Choice:good
+    “Ah, strict parents. Makes sense.” #Speaker:Charlie 
     ->afterChoiceTwo
 *[“Oh, I'm so sorry I didn’t mean to intrude, they just caught my eye. Do you mind telling me a little bit about them?”]
-    “Don’t worry about it, and since you asked, sure.” #Speaker:Tobias #Portrait:TobiasNeutral
+    “Don’t worry about it, and since you asked, sure.” #Speaker:Tobias #Portrait:TobiasNeutral #Choice:great
 “I have the typical Indian parents, they expect the best from me and nothing short. #Speaker:Tobias #Portrait:TobiasUpset
 I’m supposed to dedicate myself to my work, which I have, but I'm still not good enough.” #Speaker:Tobias
 “So, although all I want to do is make them proud, I don't really enjoy talking with them.” #Speaker:Tobias #Portrait:TobiasNeutral
