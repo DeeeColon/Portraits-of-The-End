@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: 0f840c3a1515607439c839813b12957b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1238810735322244995
+    second: no.1_cheque_0
+  - first:
+      213: -4819067597822078186
+    second: no.1_cheque_1
+  - first:
+      213: 8215644702454404403
+    second: no.1_cheque_2
+  - first:
+      213: -6240354715795767624
+    second: no.1_cheque_3
+  - first:
+      213: -1878082343850037507
+    second: no.1_cheque_4
+  - first:
+      213: -8298769307896385682
+    second: no.1_cheque_5
+  - first:
+      213: -3426044888698972117
+    second: no.1_cheque_6
+  - first:
+      213: -4353555856021789430
+    second: no.1_cheque_7
+  - first:
+      213: 8414064099498497010
+    second: no.1_cheque_8
+  - first:
+      213: 744301255802462320
+    second: no.1_cheque_9
+  - first:
+      213: 8229316705879155326
+    second: no.1_cheque_10
+  - first:
+      213: 2947555421985109075
+    second: no.1_cheque_11
+  - first:
+      213: 6631839502301501013
+    second: no.1_cheque_12
+  - first:
+      213: 1758083926371774099
+    second: no.1_cheque_13
+  - first:
+      213: -6990314347168365968
+    second: no.1_cheque_14
+  - first:
+      213: 2669288340068463399
+    second: no.1_cheque_15
+  - first:
+      213: 4882712838900317877
+    second: no.1_cheque_16
+  - first:
+      213: -2284788492304909557
+    second: no.1_cheque_17
+  - first:
+      213: -5410741723382987317
+    second: no.1_cheque_18
+  - first:
+      213: -7860863819165560572
+    second: no.1_cheque_19
+  - first:
+      213: 5909452581350636825
+    second: no.1_cheque_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: no.1_cheque_0
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 432
+        width: 430
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387a2dedcc3213110800000000000000
+      internalID: 1238810735322244995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f7cf88343af991f448abc674a276c722
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      no.1_cheque_1: 260303092
+      no.1_cheque_21: -1273629292
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

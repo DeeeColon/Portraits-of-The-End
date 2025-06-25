@@ -75,7 +75,7 @@ public class dialogueManager : MonoBehaviour
          instance = this;
       }
       Managers = GameObject.Find("Managers");
-      DontDestroyOnLoad(Managers);
+    
 
       
    }
@@ -164,7 +164,7 @@ public class dialogueManager : MonoBehaviour
    {
       continueButton.SetActive(false);
       dialogueText.text = "";
-      playerPrompter.text = "Right Click To Fast Forward.";
+      playerPrompter.text = "";
       HideChoices();
 
       foreach (char letter in line.ToCharArray())
@@ -178,7 +178,15 @@ public class dialogueManager : MonoBehaviour
          yield return new WaitForSeconds(TypingSpeed);
       }
       DisplayChoices();
-      continueButton.SetActive(true);
+      if (isPaused == true)
+      {
+         continueButton.SetActive(false);
+      }
+      else
+      {
+         continueButton.SetActive(true);
+      }
+      
       playerPrompter.text = "Click The Arrow Icon To Continue";
    }
 

@@ -3,10 +3,8 @@ using UnityEngine.UI;
 
 public class DateChecker : MonoBehaviour
 {
-    public bool SiennaDateOneSuccess = false;
-    public bool TobiasDateOneSuccess = false;
-    public bool SiennaDateOneCompleted = false;
-    public bool TobiasDateOneCompleted = false;
+	
+   
 
     public GameObject tobiasPortrait;
     public GameObject siennaPortrait;
@@ -33,30 +31,30 @@ public class DateChecker : MonoBehaviour
 
     public void SiennaDateComplete()
     {
-        SiennaDateOneCompleted = true;
+        DateScore.SiennaDateOneCompleted = true;
     }
 
     public void TobiasDateComplete()
     {
-        TobiasDateOneCompleted = true;
+        DateScore.TobiasDateOneCompleted = true;
     }
 
     public void SiennaDateSucceeded()
     {
-        SiennaDateOneSuccess =  true;
+        DateScore.SiennaDateOneSuccess =  true;
     }
 
     public void TobiasDateSucceeded()
     {
-        TobiasDateOneSuccess = true;
+        DateScore.TobiasDateOneSuccess = true;
     }
 
     public void RESET()
     {
-        SiennaDateOneCompleted = false;
-        TobiasDateOneCompleted = false;
-        SiennaDateOneSuccess = false;
-        TobiasDateOneSuccess = false;
+        DateScore.SiennaDateOneCompleted = false;
+        DateScore.TobiasDateOneCompleted = false;
+        DateScore.SiennaDateOneSuccess = false;
+        DateScore.TobiasDateOneSuccess = false;
     }
     
     

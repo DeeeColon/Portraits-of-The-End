@@ -5,10 +5,15 @@ using UnityEngine.UI;
 public class timerScript : MonoBehaviour
 {
     public static timerScript instance;
+    [SerializeField] Slider timerSlider;
     [SerializeField] public miniGameManager MiniGameManager;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] Image timerImage;
+    [SerializeField] private GameObject sliderBar;
+    [SerializeField] private Image timerBar;
     [SerializeField] float remainingTime;
     public bool timerStopped;
+    [SerializeField] private MiniGameCommunicator NewMiniGameCommunicator;
 
     public float getRemainingTime()
     {
@@ -18,12 +23,25 @@ public class timerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        timerSlider.value = remainingTime;
+        timerSlider.maxValue = remainingTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timerSlider.value = remainingTime;
+
+        if (remainingTime <= 31 && remainingTime >= 16)
+        {
+            
+            LeanTween.color(timerBar.rectTransform, Color.yellow, 1f);
+        } 
+        else if (remainingTime <= 16)
+        {
+            LeanTween.color(timerBar.rectTransform, Color.red, 1f);
+        }
+        
         if (timerStopped) return;
         if (remainingTime > 0)
         {
@@ -41,8 +59,8 @@ public class timerScript : MonoBehaviour
 
         if (remainingTime <= 0)
         {
-            miniGameManager.instance.MiniGameLost();
-            MiniGameManager.MiniGameLost();
+            NewMiniGameCommunicator.TimeHasEnded = true;
+
         }
     }
     
@@ -57,7 +75,7 @@ public class timerScript : MonoBehaviour
             instance = this;
         }
         
-        MiniGameManager = GameObject.Find("MiniGameManager_Sienna").GetComponent<miniGameManager>();
+        
     }
 
     public void StopTimer()

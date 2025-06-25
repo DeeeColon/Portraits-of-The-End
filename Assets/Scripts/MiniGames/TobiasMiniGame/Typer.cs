@@ -18,6 +18,7 @@ public class Typer : MonoBehaviour
     public TextMeshProUGUI WordOutput = null;
     public int score = 0;
     public GameObject miniGameTwo;
+    [SerializeField] private MiniGameCommunicator NewMiniGameCommunicator;
 
     private string RemainingWord = string.Empty;
     private string CurrentWord = string.Empty;
@@ -26,6 +27,7 @@ public class Typer : MonoBehaviour
     private void Start()
     {
         SetCurrentWord();
+        NewMiniGameCommunicator.TypingScore = 0;
     }
 
     private void SetCurrentWord()
@@ -44,11 +46,6 @@ public class Typer : MonoBehaviour
     void Update()
     {
         CheckInput();
-        if (score == 3)
-        {
-            gameObject.SetActive(false);
-            miniGameTwo.SetActive(true);
-        }
         
     }
 
@@ -72,8 +69,8 @@ public class Typer : MonoBehaviour
           if (isWordComplete())
           { 
               SetCurrentWord();
-              score++;
-              Debug.Log(score);
+              NewMiniGameCommunicator.TypingScore++;
+
           }
               
         }

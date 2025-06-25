@@ -6,6 +6,11 @@ using System.Collections.Generic;
 public class ScoreCommunicator : ScriptableObject
 {
     [SerializeField]private float _Value;
+	public bool TobiasDateOneSuccess = false;
+    public bool SiennaDateOneSuccess = false;
+    public bool SiennaDateOneCompleted = false;
+    public bool TobiasDateOneCompleted = false;
+    
 
     public float Value
     {
@@ -13,5 +18,8 @@ public class ScoreCommunicator : ScriptableObject
         set { _Value = value; }
 
     }
+	
+                    
+                        
 
 }

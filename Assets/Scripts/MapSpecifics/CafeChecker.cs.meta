@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: a829a6a8003e45e44a4f0e7084650c0c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DateChecker: {instanceID: 0}
+  - DateScore: {fileID: 11400000, guid: f5a14d3100c3fd449b2bec2c02ec513e, type: 2}
+  - Cafe: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

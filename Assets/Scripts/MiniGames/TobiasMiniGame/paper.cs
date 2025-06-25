@@ -19,7 +19,7 @@ public class paper : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

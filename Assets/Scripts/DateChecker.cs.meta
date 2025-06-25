@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 594f891c12340844f85fa53a12cee588
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tobiasPortrait: {instanceID: 0}
+  - siennaPortrait: {instanceID: 0}
+  - Cafe: {instanceID: 0}
+  - SiennasBar: {instanceID: 0}
+  - DateScore: {fileID: 11400000, guid: f5a14d3100c3fd449b2bec2c02ec513e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

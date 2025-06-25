@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 8604252694b6f9e4c8f563dd53cf9e06
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DateScore: {fileID: 11400000, guid: f5a14d3100c3fd449b2bec2c02ec513e, type: 2}
+  - siennaPortrait: {instanceID: 0}
+  - tobiasPortrait: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

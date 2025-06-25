@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class BarChecker : MonoBehaviour
 {
     [SerializeField] public DateChecker DateChecker;
+    [SerializeField] private ScoreCommunicator DateScore;
 
     [SerializeField] public Button SiennasBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +16,7 @@ public class BarChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DateChecker.SiennaDateOneCompleted)
+        if (DateScore.SiennaDateOneCompleted == true)
         {
             SiennasBar.enabled = false;
         }

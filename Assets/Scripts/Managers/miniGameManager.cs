@@ -16,8 +16,10 @@ public class miniGameManager : MonoBehaviour
     private int Difficulty;
     private bool tasksCompleted;
     
-    public TextMeshProUGUI winText;
+    public TextMeshProUGUI prompter;
     public GameObject EndOFDateBox;
+    public GameObject WinBox;
+    public GameObject LoseBox;
 
     public GameObject FirstDifficulty;
     public GameObject TIMER;
@@ -27,6 +29,7 @@ public class miniGameManager : MonoBehaviour
     public timerScript timer;
     [SerializeField] private ScoreCommunicator DateScore;
     [SerializeField] private DateChecker DateChecker;
+    [SerializeField] private MiniGameCommunicator NewMiniGameCommunicator;
    
 
     public GameObject bottles;
@@ -36,35 +39,47 @@ public class miniGameManager : MonoBehaviour
     void Start()
     {
         PointsToWinMiniGameOne = 6;
-        Chopped = false;
+        NewMiniGameCommunicator.Chopped = false;
+        NewMiniGameCommunicator.MiniGameThreePoints = 0;
+        NewMiniGameCommunicator.currentPointsMiniGameOne = 0;
+        NewMiniGameCommunicator.TimeHasEnded = false;
+        prompter.text = "Use The Mouse To Sort Out The Bottles!";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentPointsMiniGameOne == PointsToWinMiniGameOne)
+        if (NewMiniGameCommunicator.currentPointsMiniGameOne == PointsToWinMiniGameOne)
         {
+            prompter.text = "Press Space to Chop The Lemon!";
             MiniGameOne.SetActive(false);
             MiniGameTwo.SetActive(true);
-            Debug.Log("Changed Mini Game One");
         }
-        if (MiniGameThreePoints == 500)
+        if (NewMiniGameCommunicator.MiniGameThreePoints == 500)
         {
             tasksCompleted = true;
 
         }
 
-        if (Chopped)
+        if (NewMiniGameCommunicator.Chopped)
         {
+            prompter.text = "Move the Mouse Up and Down to Clean!";
             MiniGameTwo.SetActive(false);
             MiniGameThree.SetActive(true);
-            Chopped = false;
+            NewMiniGameCommunicator.Chopped = false;
             
         }
 
-        if (tasksCompleted && timer.getRemainingTime() >= 0)
+        if (tasksCompleted && NewMiniGameCommunicator.TimeHasEnded == false)
         {
+            Debug.Log("MiniGameWon");
             MiniGameWon();
+        }
+
+        if (NewMiniGameCommunicator.TimeHasEnded == true)
+        {
+            MiniGameLost();
+            Debug.Log("MiniGameLost");
         }
     }
 
@@ -84,70 +99,76 @@ public class miniGameManager : MonoBehaviour
 
     public void AddPoints()
     {
-        currentPointsMiniGameOne++;
+        NewMiniGameCommunicator.currentPointsMiniGameOne++;
         Debug.Log("added a point");
-        Debug.Log(currentPointsMiniGameOne);
+        Debug.Log(NewMiniGameCommunicator.currentPointsMiniGameOne);
     }
     
 
     public void ScrubbingPoints()
     {
-        MiniGameThreePoints++;
+        NewMiniGameCommunicator.MiniGameThreePoints++;
     }
 
     public void Chop()
     {
-        Chopped = true;
+        NewMiniGameCommunicator.Chopped = true;
     }
     
     public void MiniGameWon()
     {
+        
         TIMER.SetActive(false);
         EndOFDateBox.SetActive(true);
         FirstDifficulty.SetActive(false);
         DateScore.Value += 3;
         if (DateScore.Value >= 4)
         {
-            winText.text = "Successful Date! You did well.";
+            Debug.Log("Successful Date! You did well.");
             DateChecker.SiennaDateComplete();
             DateChecker.SiennaDateSucceeded();
+            WinBox.SetActive(true);
             
         } 
         else if (DateScore.Value == 4)
         {
-            winText.text = "Successful Date! You did okay.";
+            Debug.Log("Successful Date! You did okay.");
             DateChecker.SiennaDateComplete();
             DateChecker.SiennaDateSucceeded();
+            WinBox.SetActive(true);
         } 
         else if (DateScore.Value <= 4)
         {
-            winText.text = "Unsuccessful Date! You did not do well.";
+            Debug.Log("Unsuccessful Date! You did not do well."); 
             DateChecker.SiennaDateComplete();
+            LoseBox.SetActive(true);
         }
         
     }
 
     public void MiniGameLost()
     {
+        
         TIMER.SetActive(false);
         EndOFDateBox.SetActive(true);
         FirstDifficulty.SetActive(false);
         if (DateScore.Value >= 4)
         {
-            winText.text = "Successful Date! You did well.";
             DateChecker.SiennaDateComplete();
             DateChecker.SiennaDateSucceeded();
+            WinBox.SetActive(true);
         } 
         else if (DateScore.Value == 4)
         {
-            winText.text = "Successful Date! You did okay.";
             DateChecker.SiennaDateComplete();
             DateChecker.SiennaDateSucceeded();
+            WinBox.SetActive(true);
         } 
         else if (DateScore.Value <= 4)
         {
-            winText.text = "Unsuccessful Date! You did not do well.";
+            
             DateChecker.SiennaDateComplete();
+            LoseBox.SetActive(true);
         }
         
     }

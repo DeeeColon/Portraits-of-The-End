@@ -10,6 +10,7 @@ public class slotScript : MonoBehaviour, IDropHandler
 {
     public int ID;
     [SerializeField] public miniGameManager MiniGameManager;
+    [SerializeField] private MiniGameCommunicator NewMiniGameCommunicator;
     public void OnDrop(PointerEventData eventData)
     
     {
@@ -18,9 +19,11 @@ public class slotScript : MonoBehaviour, IDropHandler
         {
             if (eventData.pointerDrag.GetComponent<dragObjectScript>().ID == ID)
             {
+                NewMiniGameCommunicator.CurrentSlotPoints++;
                 Debug.Log("Correct!");
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition;
                 MiniGameManager.AddPoints();
+
             }
             else
             {

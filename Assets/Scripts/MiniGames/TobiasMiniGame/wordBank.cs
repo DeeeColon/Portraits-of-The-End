@@ -17,14 +17,13 @@ public class wordBank : MonoBehaviour
 {
    private List<string> originalWords = new List<string>()
    {
-      "Pancakes", "Are", "Delicious"
+      "Good afternoon boss,", "I hate it here and I resign." , "Kind regards, Tobias."
    };
    private List<string> workingWords = new List<string>();
 
    private void Awake()
    {
       workingWords.AddRange(originalWords);
-      Shuffle(workingWords);
       ConvertToLower(workingWords);
    }
 
@@ -52,7 +51,7 @@ public class wordBank : MonoBehaviour
 
       if (workingWords.Count > 0)
       {
-         newWord = workingWords.Last();
+         newWord = workingWords.First();
          workingWords.Remove(newWord);
          
       }

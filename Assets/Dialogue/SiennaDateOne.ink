@@ -12,8 +12,7 @@
 "Well, I keep the bar open not so much for me but for my people. I worry about them a lot." #Speaker:Sienna #Portrait:SiennaHappy
 "What do you mean by 'your people?' "#Speaker:Charlie
 "Okay, have you heard of  the Emerald Mafia, those mischievous trouble makers?" #Speaker:Sienna #Portrait:SiennaHappy
-"Honestly, I just picked at random, tho seems I've lucked out, but yes, I know about them. Why do you bring it up?" #Speaker:Charlie
-"Honestly, I just picked at random, though seems I've lucked out, but yes, I know about them. Why do you bring it up?" #Speaker:Charlie
+"Honestly, I just picked at random, though it seems I've lucked out, but yes, I know about them. Why do you bring it up?" #Speaker:Charlie
 
 "Well,l this bar is a known front for that mafia." #Speaker:Sienna #Portrait:SiennaHappy
 "Wait, you said you own this bar…" #Speaker:Charlie
@@ -72,8 +71,10 @@
 “Well, it's just me working now, and I can't manage by myself. The business is suffering for it, so I feel like I have no choice. Plus, what's the point with the end so close?”#Speaker:Sienna 
 “No, you can't let the legacy die like this. Let me help you. I'm sure we can get it ready for customers again.” #Speaker:Charlie
 “Then maybe you can host one last good night for a farewell.” #Speaker:Charlie
-"Thanks for coming by sweetheart, its nice to chat with someon every once and a while" #Speaker:Sienna #Portrait:SiennaSad
-"No problem, see you around!" #Speaker:Charlie
+"Well, if you're so eager, do you mind helping me with some menial tasks?" #Speaker:Sienna #Portrait:SiennaNeutral
+"Sure, no problem!" #Speaker:Charlie
+"Oh and thanks for coming by sweetheart, its nice to chat with someone every once and a while" #Speaker:Sienna #Portrait:SiennaSad
+"No problem, now lets get started!" #Speaker:Charlie
 
 
 

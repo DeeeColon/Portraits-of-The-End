@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class mover : MonoBehaviour
 {
     [SerializeField] int sensetivity = 5;
-    [SerializeField] int score = 1;
+    [SerializeField] private MiniGameCommunicator NewMiniGameCommunicator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,9 +26,9 @@ public class mover : MonoBehaviour
             transform.Translate(transform.right * Time.deltaTime * sensetivity);
         }
 
-        if (score >= 2)
+        if (NewMiniGameCommunicator.PapersCaught >= 2)
         {
-            print(score);
+            print(NewMiniGameCommunicator.PapersCaught);
         }
         
         
@@ -38,7 +38,7 @@ public class mover : MonoBehaviour
     {
         if (collision.gameObject.tag == "paper")
         {
-            score ++;
+            NewMiniGameCommunicator.PapersCaught ++;
         }
 
         if (collision.gameObject.tag == "paper")

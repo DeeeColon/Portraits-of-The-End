@@ -128,15 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594f891c12340844f85fa53a12cee588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SiennaDateOneSuccess: 0
-  TobiasDateOneSuccess: 0
-  SiennaDateOneCompleted: 0
-  TobiasDateOneCompleted: 0
   tobiasPortrait: {fileID: 0}
   siennaPortrait: {fileID: 0}
   Cafe: {fileID: 0}
   SiennasBar: {fileID: 0}
-  DateScore: {fileID: 0}
+  DateScore: {fileID: 11400000, guid: f5a14d3100c3fd449b2bec2c02ec513e, type: 2}
 --- !u!1 &3963036187509179639
 GameObject:
   m_ObjectHideFlags: 0
